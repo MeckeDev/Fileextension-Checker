@@ -41,4 +41,4 @@ while True:
     if filename == "exit" or filename == "quit":
         break
 
-    print(f"The extension of the File is: {get_ext(filename)}")
+    print(f"The extension of the File is: {get_ext(filename)}\n")

@@ -1,5 +1,4 @@
 import requests as r
-import json
 
 data = r.get("https://www.webopedia.com/quick_ref/fileextensionsfull.asp").text
 

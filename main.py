@@ -1,4 +1,8 @@
 import requests as r
+import os
+
+def cls():
+    os.system('cls' if os.name=='nt' else 'clear')
 
 headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36'}
 data = r.get("https://www.webopedia.com/quick_ref/fileextensionsfull.asp", headers=headers).text
@@ -33,7 +37,7 @@ def get_ext(file):
     except:
         return f"{file} is not a valid filename"
 
-print(len(all_formats))
+print(f"The Tool can recognize {len(all_formats)} File Extensions")
 
 while True:
 
@@ -42,4 +46,9 @@ while True:
     if filename == "exit" or filename == "quit":
         break
 
-    print(f"The extension of the File is: {get_ext(filename)}\n")
+    cls()
+
+    print(f"""
+The extension of the File "{filename}" is: 
+    {get_ext(filename)}
+""")

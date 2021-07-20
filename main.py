@@ -1,9 +1,10 @@
 import requests as r
 
-data = r.get("https://www.webopedia.com/quick_ref/fileextensionsfull.asp").text
+headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36'}
+data = r.get("https://www.webopedia.com/quick_ref/fileextensionsfull.asp", headers=headers).text
 
-x = data.find('<h3>&nbsp; <a name="num"></a><span class="style3">Data File Formats and File Extensions - Complete List</span></h3>')
-y = data.find('<p><span style="background-color: #ffff00;"><strong>Recommended Reading:</strong> <a href="https://www.webopedia.com/quick_ref/fileextensions.asp">An Introduction to Data File Formats and Their File Extensions</a></span></p>')
+x = data.find('<h3>  <a name="num"></a><span class="style3">Data File Formats and File Extensions &#8211; Complete List</span></h3>')
+y = data.find('<td class="style8"><a href="https://www.webopedia.com/reference/fileextensionsnumber/" title="File Extensions that Begin with a Number">Number</a>')
 
 formats = data[x:y].split("<tr>")
 all_formats = {}
